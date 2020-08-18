@@ -1,0 +1,206 @@
+global string $grammar;
+global string $grammarPath;
+
+global string $gidSlider;
+global string $XpositionSlider;
+global string $YpositionSlider;
+global string $XgoalSlider;
+global string $YgoalSlider;
+global string $prefSpeedSlider;
+global string $radiusSlider;
+
+//------------------------------------------------------------
+// Creates the main window Crowd menu
+//------------------------------------------------------------
+global proc createCrowdSimulationUI()
+{
+		print ("crowd UI start\n");
+        global string $gMainWindow;
+        setParent $gMainWindow;
+		global int $edit_count;
+		$edit_count = 0;
+        menu -label "Implicit Crowd" CrowdMenu;
+			menuItem -label "Initial Crowd Command" -command displayCrowdDialog;
+}
+
+//------------------------------------------------------------
+// Creates the Dialog
+//------------------------------------------------------------
+global proc displayCrowdDialog()
+{
+    global int $complete;
+    
+    if (!`window -exists myWindow`)
+        window -widthHeight 400 350 -title "Call Crowd Command" myWindow;
+		
+    columnLayout -adjustableColumn true -rowSpacing 10;   
+    	string $formBrowse = `formLayout -numberOfDivisions 100`;
+            string $bBrowse = `button -command openFileDialog -label "Browse..."`;
+            string $tBrowse = `text -font boldLabelFont -label "Browse for agents file"`;
+			string $bshow = `button -label "Render File" -command renderScene`;
+            formLayout -edit
+				-attachForm $tBrowse "top" 10
+                -attachForm $bBrowse "top" 5
+				-attachForm $bshow "top" 5
+                -attachForm $tBrowse "left" 5
+                -attachForm $bBrowse "right" 85
+				-attachForm $bshow "right" 5
+            $formBrowse;
+            setParent ..;
+        setParent ..;  
+        
+
+    global string $gidSlider;
+    global string $XpositionSlider;
+    global string $YpositionSlider;
+    global string $XgoalSlider;
+    global string $YgoalSlider;
+    global string $prefSpeedSlider;
+    global string $radiusSlider;
+    
+    frameLayout -label "Obejct Parameters";
+		$gidSlider = `intSliderGrp -label "Group ID" -field true`;
+		$XpositionSlider = `floatSliderGrp -label "Position X" -minValue -50.0 -maxValue 50.0 -fieldMinValue -50.0 -fieldMaxValue 50.0 -value 0 -field true`;
+		$YpositionSlider = `floatSliderGrp -label "Position Y" -minValue -50.0 -maxValue 50.0 -fieldMinValue -50.0 -fieldMaxValue 50.0 -value 0 -field true`;
+		$XgoalSlider = `floatSliderGrp -label "Goal X" -minValue -50.0 -maxValue 50.0 -fieldMinValue -50.0 -fieldMaxValue 50.0 -value 0 -field true`;
+		$YgoalSlider = `floatSliderGrp -label "Goal Y" -minValue -50.0 -maxValue 50.0 -fieldMinValue -50.0 -fieldMaxValue 50.0 -value 0 -field true`;
+		$prefSpeedSlider = `floatSliderGrp -label "Goal Speed" -minValue 0.0 -maxValue 50.0-value 2 -field true`;
+		$radiusSlider = `floatSliderGrp -label "Radius" -minValue 0 -maxValue 50.0 -fieldMinValue 0.0 -fieldMaxValue 50.0 -value 0.2 -field true`;
+	
+		string $formAgent = `formLayout -numberOfDivisions 100`;
+			string $bAddAgent = `button -label "Add Agent" -command addAgent`;
+			string $bAddObstacle = `button -label "Add Moving Obstacle" -command addObstacle`;
+			string $bUndoAdd = `button -label "Undo Add" -command callUndo`;
+			formLayout -edit
+				-attachForm $bAddAgent "left" 5
+				-attachForm $bAddObstacle "left" 130
+				-attachForm $bUndoAdd "right" 19
+		$formAgent;
+			
+		setParent ..;
+    setParent ..;
+	
+	string $formAgent1 = `formLayout -numberOfDivisions 100`;
+		string $bBackup = `button -label "Backup Scenario File" -command backup`;
+		string $bCancel = `button -label "Close Window" -command deleteCrowdSimulationUI`;
+		string $bSimulate = `button -label "Simulate" -command callCrowdCmd`;
+		formLayout -edit
+			-attachForm $bSimulate "left" 10
+			-attachForm $bBackup "left" 132
+			-attachForm $bCancel "right" 8
+	$formAgent1;
+		
+    
+    showWindow myWindow;
+}
+
+global proc callCrowdCmd()
+{
+	global string $grammarPath;
+	print ("call crowd cmd\n");
+    CrowdCmd -c 0 -s $grammarPath;
+}
+
+global proc callUndo()
+{
+	global string $grammarPath;
+	global int $edit_count;
+	
+	print ("undo the last add\n");
+    CrowdCmd -c 5 -s $grammarPath -ec $edit_count;
+	if($edit_count > 0)
+		$edit_count = $edit_count - 1;
+}
+
+global proc backup()
+{
+	global string $grammarPath;
+	global int $edit_count;
+	
+	print ("backup original scenario file\n");
+    CrowdCmd -c 4 -s $grammarPath -ec $edit_count;
+	$edit_count = 0;
+}
+
+global proc renderScene()
+{
+	global string $grammarPath;
+	print ("render crowd from file\n");
+    CrowdCmd -c 3 -s $grammarPath;
+	print ("Showing the Scene on Maya...\n");
+}
+
+//--------------------------------------------------------------
+// Sets the grammar file path and displays the text file
+//--------------------------------------------------------------
+global proc openFileDialog()
+{
+    global string $grammarPath;
+    global string $grammar;
+    global string $grammarScrollField;
+    
+    $grammarPath = `fileDialog -directoryMask "*.txt"`;
+    print ("INFO: $grammarPath = " + $grammarPath + "\n");
+}
+
+global proc addAgent()
+{
+    global string $gidSlider;
+    global string $XpositionSlider;
+    global string $YpositionSlider;
+    global string $XgoalSlider;
+    global string $YgoalSlider;
+    global string $prefSpeedSlider;
+    global string $radiusSlider;
+	global string $grammarPath;
+	global int $edit_count;
+	
+	$edit_count = $edit_count + 1;
+    int $gid = `intSliderGrp -q -v $gidSlider`;
+    float $Xposition = `floatSliderGrp -q -v $XpositionSlider`;
+    float $Yposition = `floatSliderGrp -q -v $YpositionSlider`;
+    float $Xgoal = `floatSliderGrp -q -v $XgoalSlider`;
+    float $Ygoal = `floatSliderGrp -q -v $YgoalSlider`;
+    float $prefSpeed = `floatSliderGrp -q -v $prefSpeedSlider`;
+    float $radius = `floatSliderGrp -q -v $radiusSlider`;
+
+    CrowdCmd -c 1 -gid $gid -px $Xposition -py $Yposition -gx $Xgoal -gy $Ygoal -v $prefSpeed -r $radius -s $grammarPath -ec $edit_count;
+}
+
+global proc addObstacle()
+{
+    global string $gidSlider;
+    global string $XpositionSlider;
+    global string $YpositionSlider;
+    global string $XgoalSlider;
+    global string $YgoalSlider;
+    global string $prefSpeedSlider;
+    global string $radiusSlider;
+	global string $grammarPath;
+	global int $edit_count;
+	
+	$edit_count = $edit_count + 1;
+    int $gid = `intSliderGrp -q -v $gidSlider`;
+    float $Xposition = `floatSliderGrp -q -v $XpositionSlider`;
+    float $Yposition = `floatSliderGrp -q -v $YpositionSlider`;
+    float $Xgoal = `floatSliderGrp -q -v $XgoalSlider`;
+    float $Ygoal = `floatSliderGrp -q -v $YgoalSlider`;
+    float $prefSpeed = `floatSliderGrp -q -v $prefSpeedSlider`;
+    float $radius = `floatSliderGrp -q -v $radiusSlider`;
+
+    CrowdCmd -c 2 -gid $gid -px $Xposition -py $Yposition -gx $Xgoal -gy $Ygoal -v $prefSpeed -r $radius -s $grammarPath -ec $edit_count;
+
+}
+
+
+//------------------------------------------------------------
+// Deletes the GUI dialog
+//------------------------------------------------------------
+global proc deleteCrowdSimulationUI()
+{
+	global string $grammarPath;
+	CrowdCmd -c 6 -s $grammarPath;
+    if (`window -exists myWindow`)
+        deleteUI myWindow;
+	print ("Deleting GUI\n");
+}

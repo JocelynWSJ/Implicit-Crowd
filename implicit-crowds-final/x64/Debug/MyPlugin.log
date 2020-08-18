@@ -1,0 +1,26 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (LSystemMaya.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  CrowdCmd.cpp
+CrowdCmd.cpp(162): warning C4101: 'e': unreferenced local variable
+CrowdCmd.cpp(321): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+CrowdCmd.cpp(278): warning C4101: 'e': unreferenced local variable
+CrowdCmd.cpp(340): warning C4101: 'r_x': unreferenced local variable
+CrowdCmd.cpp(340): warning C4101: 't_y': unreferenced local variable
+CrowdCmd.cpp(329): warning C4101: 'characterId': unreferenced local variable
+CrowdCmd.cpp(340): warning C4101: 't_z': unreferenced local variable
+CrowdCmd.cpp(340): warning C4101: 'r_z': unreferenced local variable
+CrowdCmd.cpp(340): warning C4101: 't_x': unreferenced local variable
+CrowdCmd.cpp(340): warning C4101: 'r_y': unreferenced local variable
+CrowdCmd.cpp(394): warning C4101: 'r_x': unreferenced local variable
+CrowdCmd.cpp(394): warning C4101: 't_y': unreferenced local variable
+CrowdCmd.cpp(383): warning C4101: 'characterId': unreferenced local variable
+CrowdCmd.cpp(394): warning C4101: 't_z': unreferenced local variable
+CrowdCmd.cpp(394): warning C4101: 'r_z': unreferenced local variable
+CrowdCmd.cpp(394): warning C4101: 't_x': unreferenced local variable
+CrowdCmd.cpp(394): warning C4101: 'r_y': unreferenced local variable
+CrowdCmd.cpp(595): warning C4101: 'e': unreferenced local variable
+c:\users\yuanyao\desktop\mplugin\crowdcmd.cpp(125): warning C4715: 'CrowdCmd::editAgentNumbersInFile': not all control paths return a value
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(C:\Users\yuanyao\Desktop\MPlugin\x64\Debug\CrowdSimulationMaya.dll) does not match the Linker's OutputFile property value (C:\Users\yuanyao\Desktop\MPlugin\CrowdMaya.mll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1190,5): warning MSB8012: TargetExt(.dll) does not match the Linker's OutputFile property value (.mll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1191,5): warning MSB8012: TargetName(CrowdSimulationMaya) does not match the Linker's OutputFile property value (CrowdMaya). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+  MyPlugin.vcxproj -> C:\Users\yuanyao\Desktop\MPlugin\x64\Debug\CrowdSimulationMaya.dll
+  MyPlugin.vcxproj -> .\Debug/MyPlugin.pdb (Full PDB)

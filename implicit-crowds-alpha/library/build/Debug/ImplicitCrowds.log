@@ -1,0 +1,10 @@
+﻿  Main.cpp
+c:\users\jocelyn\documents\github\robust-crowd\implicit-crowds-alpha\library\src\main.cpp(115): warning C4018: '<': signed/unsigned mismatch
+c:\users\jocelyn\documents\github\robust-crowd\implicit-crowds-alpha\library\src\main.cpp(66): warning C4101: 'e': unreferenced local variable
+  ImplicitSolver.cpp
+  Agent.cpp
+  lq2D.cpp
+  Generating Code...
+     Creating library C:\Users\Jocelyn\Documents\GitHub\Robust-Crowd\implicit-crowds-alpha\build\bin\ImplicitCrowds.lib and object C:\Users\Jocelyn\Documents\GitHub\Robust-Crowd\implicit-crowds-alpha\build\bin\ImplicitCrowds.exp
+  ImplicitCrowds.vcxproj -> C:\Users\Jocelyn\Documents\GitHub\Robust-Crowd\implicit-crowds-alpha\build\bin\ImplicitCrowds.exe
+  ImplicitCrowds.vcxproj -> C:\Users\Jocelyn\Documents\GitHub\Robust-Crowd\implicit-crowds-alpha\build\bin\ImplicitCrowds.pdb (Full PDB)

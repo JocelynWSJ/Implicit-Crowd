@@ -1,0 +1,14 @@
+﻿  CrowdCmd.cpp
+CrowdCmd.cpp(107): warning C4101: 'e': unreferenced local variable
+CrowdCmd.cpp(165): warning C4101: 'r_x': unreferenced local variable
+CrowdCmd.cpp(165): warning C4101: 't_y': unreferenced local variable
+CrowdCmd.cpp(154): warning C4101: 'characterId': unreferenced local variable
+CrowdCmd.cpp(165): warning C4101: 't_z': unreferenced local variable
+CrowdCmd.cpp(165): warning C4101: 'r_z': unreferenced local variable
+CrowdCmd.cpp(165): warning C4101: 't_x': unreferenced local variable
+CrowdCmd.cpp(165): warning C4101: 'r_y': unreferenced local variable
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1189,5): warning MSB8012: TargetPath(C:\Users\yuanyao\Desktop\MayaPlugin\x64\Debug\LSystemMaya.dll) does not match the Linker's OutputFile property value (C:\Users\yuanyao\Desktop\MayaPlugin\LSystemd.mll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1190,5): warning MSB8012: TargetExt(.dll) does not match the Linker's OutputFile property value (.mll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(1191,5): warning MSB8012: TargetName(LSystemMaya) does not match the Linker's OutputFile property value (LSystemd). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+  MyPlugin.vcxproj -> C:\Users\yuanyao\Desktop\MayaPlugin\x64\Debug\LSystemMaya.dll
+  MyPlugin.vcxproj -> .\Debug/MyPlugin.pdb (Full PDB)

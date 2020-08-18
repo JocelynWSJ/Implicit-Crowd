@@ -1,0 +1,21 @@
+﻿Build started 1/18/2012 4:48:26 PM.
+     1>Project "D:\WinDocs\UPenn\Courses\CIS660\2012\MayaPluginHw2\MyPlugin.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Win32\Release\LSystemMaya.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I. /I\include /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D NDEBUG /D WIN32 /D _WINDOWS /D NT_PLUGIN /D REQUIRE_IOSTREAM /D _VC80_UPGRADE=0x0710 /D _WINDLL /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo".\Release/" /Fd".\Release/MyPlugin.pdb" /Gd /TP /wd4244 /wd4305 /wd4018 /analyze- /errorReport:prompt cylinder.cpp LSystem.cpp LSystemCmd.cpp PluginMain.cpp vec.cpp /GR /GS /EHac 
+     1>cl : Command line warning D9025: overriding '/EHs' with '/EHa'
+         cylinder.cpp
+     1>d:\windocs\upenn\courses\cis660\2012\mayapluginhw2\cylinder.h(4): fatal error C1083: Cannot open include file: 'maya/MPoint.h': No such file or directory
+         LSystem.cpp
+         LSystemCmd.cpp
+     1>d:\windocs\upenn\courses\cis660\2012\mayapluginhw2\LSystemCmd.h(4): fatal error C1083: Cannot open include file: 'maya/MPxCommand.h': No such file or directory
+         PluginMain.cpp
+     1>PluginMain.cpp(1): fatal error C1083: Cannot open include file: 'maya/MPxCommand.h': No such file or directory
+         vec.cpp
+         Generating Code...
+     1>Done Building Project "D:\WinDocs\UPenn\Courses\CIS660\2012\MayaPluginHw2\MyPlugin.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:01.40

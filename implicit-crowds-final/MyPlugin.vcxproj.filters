@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{68fa8cd7-9226-4c47-a1fd-ffe1532f14c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{fe211e4c-3ead-4b5d-8233-d00874d8dcc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Library">
+      <UniqueIdentifier>{068b3ee2-493c-4e2b-b8e4-0f5a86158b92}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PluginMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CrowdCmd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Agent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImplicitSolver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="proximitydatabase\lq2D.cpp">
+      <Filter>Library</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CrowdCmd.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Agent.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="implicitSolver.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="proximitydatabase\lq2d.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="proximitydatabase\Proximity2D.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+    <ClInclude Include="proximitydatabase\ProximityDatabaseItem.h">
+      <Filter>Library</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
